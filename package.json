@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/index.ts --port=8080",
-    "start": "node src/index.js --port=8080"
+    "dev": "nodemon src/index.js ",
+    "start": "node src/index.js "
   },
   "repository": {
     "type": "git",

@@ -33,9 +33,6 @@ const StoreOptions = {
 
 }
 
-// MONGO_URL = mongodb+srv://julioignaciootero:luna0182@cluster0.4ysv2.mongodb.net/?retryWrites=true&w=majority
-// DB = CODERHOUSE
-
 app.use(session(StoreOptions))
 app.use(passport.initialize())
 app.use(passport.session())
@@ -45,22 +42,6 @@ passport.use('signup', signUpFunction)
 app.use('/api', miRouter)
 
 
-//YARGS
-const optArgumentos = {
-    alias: {
-        p: 'puerto'
-    },
-    default: {
-        p: 8080
-    }
-
-}
-
-const args = minimist(process.argv.slice(2), optArgumentos)
-const argumentos = {
-    otros: args._,
-    puerto : args.puerto
-}
 
 
 app.use((req, res, next) => {
@@ -69,9 +50,12 @@ app.use((req, res, next) => {
 })
 
 
-app.listen(argumentos.puerto, () => {
+const PORT = process.env.PORT || 8080;
 
-    console.log(`Servidor corriendo en: ` , argumentos.puerto);
+
+app.listen(PORT, () => {
+
+    console.log(`Servidor corriendo en: ` , PORT);
     
 
 })
