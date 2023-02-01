@@ -1,0 +1,39 @@
+{
+  "name": "entrega-coder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.ts --port=8080",
+    "start": "node src/index.js --port=8080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julioignaciootero/Entrega-Coder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julioignaciootero/Entrega-Coder/issues"
+  },
+  "homepage": "https://github.com/julioignaciootero/Entrega-Coder#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
+    "connect-mongo": "^4.6.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "minimist": "^1.2.7",
+    "mongoose": "^6.9.0",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
