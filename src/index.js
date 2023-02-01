@@ -37,7 +37,7 @@ app.use(session(StoreOptions))
 app.use(passport.initialize())
 app.use(passport.session())
 
-// passport.use('login', loginFunction)
+passport.use('login', loginFunction)
 passport.use('signup', signUpFunction)
 app.use('/api', miRouter)
 

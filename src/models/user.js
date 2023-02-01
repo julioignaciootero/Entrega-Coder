@@ -6,6 +6,8 @@ const UserSchema = new Schema({
     username: { type: String , requried: true, unique : true},
     password: { type: String , requried: true},
     admin: { type: Boolean , default : false},
+    nombre : { type: String },
+    apellido : { type: String }
 
 })
 

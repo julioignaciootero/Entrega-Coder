@@ -7,7 +7,8 @@ import compression from 'compression';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 import { logger } from "../config/logs.js";
-
+import  routerProducto  from "./productos.js"
+import  routerCarrito  from "./carritos.js"
 
 
 const scriptPath = path.resolve(__dirname, '../utils/randoms.js');
@@ -130,5 +131,9 @@ router.get("/randoms", (req, res) => {
 
 
 })
+
+
+router.use("/productos", routerProducto)
+router.use("/carritos", routerCarrito)
 
 export default router

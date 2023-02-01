@@ -11,5 +11,6 @@ const passportOptions = { badRequestMessage : 'Datos erroneso o incompletos'}
 
 
 routerUser.post('/signup' , signUp)
+routerUser.post('/login' , logIn)
 
 export default routerUser

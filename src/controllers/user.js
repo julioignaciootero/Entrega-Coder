@@ -13,7 +13,7 @@ export const signUp = (req, res, next) => {
 }
 
 export const logIn = (req, res) => {
-    res.status(200).json({msg: `Holis! ${req.user}`})
+    res.status(200).json({msg: `Holis! ${req.username}`})
 }
 
 export const getHome = (req, res) => {

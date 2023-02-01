@@ -1,6 +1,6 @@
 import passport from "passport";
 import { Strategy as localStrategy} from "passport-local";
-import { UserModel } from '../model/user.js'
+import { UserModel } from '../models/user.js'
 
 const strategyOptions = {
     usernameField : 'username',
@@ -12,8 +12,8 @@ const strategyOptions = {
 const signup = async (req, username, password, done) => {
 
     try {
-        
-        const newUser = new UserModel({username, password})
+        const { nombre , apellido } = req.body
+        const newUser = new UserModel({username, password, nombre, apellido})
         newUser.password = await newUser.encryptPassowrd(password)
         await newUser.save()
         return done(null, newUser)
