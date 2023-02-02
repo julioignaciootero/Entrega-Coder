@@ -4,3 +4,6 @@
 [33mwarn[39m || Ruta desconocida /api/user/login || Feb-01-2023 13:24:27
 [33mwarn[39m || Ruta desconocida /api/productos || Feb-01-2023 14:08:20
 [33mwarn[39m || Ruta desconocida /api/productos || Feb-01-2023 14:08:48
+[33mwarn[39m || Ruta desconocida /api/user/signup || Feb-01-2023 17:56:30
+[33mwarn[39m || Ruta desconocida /api/users/signup || Feb-01-2023 17:56:47
+[33mwarn[39m || Ruta desconocida /api/users/signup || Feb-01-2023 17:57:13

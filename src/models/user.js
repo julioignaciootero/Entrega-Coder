@@ -6,8 +6,14 @@ const UserSchema = new Schema({
     username: { type: String , requried: true, unique : true},
     password: { type: String , requried: true},
     admin: { type: Boolean , default : false},
+    email : { type : String, requried: true},
     nombre : { type: String },
-    apellido : { type: String }
+    apellido : { type: String },
+    direccion : { type: String} ,
+    edad: {type: Number},
+    telefono: { type: String} ,
+    avatar: { type: String} 
+
 
 })
 

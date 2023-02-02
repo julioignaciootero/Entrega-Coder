@@ -1,4 +1,5 @@
 import passport from "passport";
+import {sendMailLogin} from "../controllers/mail.js"
 
 const passportOptions = { badRequestMessage : 'Datos erroneso o incompletos'}
 
@@ -8,6 +9,9 @@ export const signUp = (req, res, next) => {
             return next(err)
         }
         if(!user) return res.status(401).json(info);
+
+        const envio = sendMailLogin(user)
+
         res.json({msg: 'signup OK'})
     })(req, res, next);
 }
