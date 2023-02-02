@@ -1,7 +1,8 @@
 import passport from "passport";
 import { Router } from "express";
-import { signUp, logIn, getHome } from '../controllers/user.js'
+import { signUp, logIn, getHome , asignarCarrito} from '../controllers/user.js'
 import { isLoggedIn } from '../middlewares/user.js'
+import router from "./productos.js";
 
 
 
@@ -12,5 +13,8 @@ const passportOptions = { badRequestMessage : 'Datos erroneso o incompletos'}
 
 routerUser.post('/signup' , signUp)
 routerUser.post('/login' , logIn)
+
+
+routerUser.post('/asignarcarrito', asignarCarrito)
 
 export default routerUser

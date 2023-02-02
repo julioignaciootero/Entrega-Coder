@@ -1,5 +1,6 @@
 import { Schema, model} from 'mongoose'
 import bcrypt from 'bcryptjs'
+import mongoose from 'mongoose'
 
 const UserSchema = new Schema({
 
@@ -12,7 +13,16 @@ const UserSchema = new Schema({
     direccion : { type: String} ,
     edad: {type: Number},
     telefono: { type: String} ,
-    avatar: { type: String} 
+    avatar: { type: String} ,
+    carritos : [
+        {   carrito : {type: mongoose.Schema.Types.ObjectId,
+            ref: 'carritos',
+            autopopulate: true,
+            required : true},
+            estado : { type : String}
+        }
+    ]
+
 
 
 })
