@@ -104,6 +104,7 @@ Loggers:
 Wsp enviado al finalizar compra
 
 
-![image](https://user-images.githubusercontent.com/45604192/216661584-253cc6d9-11e1-4a38-a4d5-bb354035d856.png)
+![image](https://user-images.githubusercontent.com/45604192/216662729-cb3cdc8a-434f-4a4f-a049-dee7b178e4c2.png)
+
 
 
