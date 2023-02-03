@@ -7,7 +7,7 @@ dotenv.config();
 export const sendWS = async(user, carrito)  => {
     try {
       const message = {
-        body: `Orden de compra: ${carrito._id}`,
+        body: `Pedido ${carrito._id} completado con exito! Gracias por confiar en nosotros`,
         from: process.env.CEL,
         to: 'whatsapp:+5491121714727',
       };
