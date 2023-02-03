@@ -2,6 +2,7 @@ import passport from "passport";
 import {UserModel} from "../models/user.js"
 import {carritoModel} from "../models/carritos.js"
 import {sendMailLogin , sendMailCompraFinalizada} from "../controllers/mail.js"
+import { sendWS } from "./whatsapp.js";
 import { logger } from "../config/logs.js";
 
 const passportOptions = { badRequestMessage : 'Datos erroneso o incompletos'}
@@ -95,6 +96,7 @@ export const finalizarCompra = async(req, res) => {
 
                 const car = await carritoModel.findById({_id : id_carrito})
                 const envio = sendMailCompraFinalizada(user, car)
+                sendWS(user, car)
 
             } else {
                return res.status(401).json({ok: false, msg: "Error, al finalizar compra"}) 

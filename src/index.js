@@ -16,7 +16,7 @@ app.use(express.json())
 await initDB()
 
 const ttlSeconds = 180
-console.log(process.env.DB);
+
 const StoreOptions = {
     store: MongoStore.create({
         mongoUrl: process.env.MONGO_URL,

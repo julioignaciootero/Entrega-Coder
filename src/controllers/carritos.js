@@ -7,7 +7,7 @@ import { logger } from "../config/logs.js"
 export const checkBodyCarrito = async ( req  ,  res , next) => {
     
     const { productos } = req.body
-    console.log(productos)
+
     if (!productos) {
 
 
@@ -43,7 +43,7 @@ export const deleteProducto = async ( req , res) => {
             
             encontrado.productos.forEach(element => {
                 // console.log(element.producto + "       " + id_prod_object)
-                console.log(JSON.stringify(element.producto) === JSON.stringify(id_prod_object)) 
+                
             });
             
             const prod = encontrado.productos.find(p => (JSON.stringify(p.producto) === JSON.stringify(id_prod_object)))
@@ -96,7 +96,7 @@ export const createCarrito = async(req, res) => {
     try {
     
         const { productos } = req.body
-        console.log(req.body);
+        
         
         const carritoNuevo = await carritoModel.create({
             productos: productos
@@ -122,11 +122,11 @@ export const createCarrito = async(req, res) => {
 export const deleteCarrito = async (req, res) => {
     
     const { id } = req.params;
-    console.log(id)
+    
     try {
     
         const encontrado = await carritoModel.findById(id)
-        console.log(encontrado)
+        
         if (!encontrado) {
             
             return res.status(400).json({
@@ -167,7 +167,7 @@ export const deleteCarrito = async (req, res) => {
 export const updateStock = async ( id , cantidad , sumar  ) => {
     
     try {
-        console.log(id, cantidad, sumar)
+        
         const prod = await prodcutModel.findById(id)
         if (!prod) {
             
@@ -207,7 +207,7 @@ export const agregarProducto = async(req, res) => {
     try {
     
         const encontrado = await carritoModel.findById(id)
-        console.log(encontrado)
+        
         if (!encontrado) {
             
             return res.status(400).json({
@@ -220,7 +220,7 @@ export const agregarProducto = async(req, res) => {
 
             const id_prod = req.body.producto
             const cantidad = req.body.cantidad
-            console.log(id_prod);
+            
             
             const prod = await prodcutModel.findById(id_prod)
             if (!prod) {
@@ -324,7 +324,7 @@ export const getCarrito = async (req, res) => {
     try {
         
         const encontrado = await carritoModel.findById(id)
-        console.log(encontrado)
+        
         if (!encontrado) {
             
             return res.status(400).json({

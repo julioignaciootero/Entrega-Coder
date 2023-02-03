@@ -5,7 +5,7 @@ import { logger } from "../config/logs.js";
 export const checkBodyProducto = async ( req ,  res , next) => {
     
     const { nombre , descripcion, codigo, foto, precio, stock } = req.body
-    console.log(nombre)
+    
     if (!nombre || !descripcion || !precio || !codigo) {
 
         return res.status(400).json({
@@ -19,12 +19,12 @@ export const checkBodyProducto = async ( req ,  res , next) => {
 
 
 export const createProdcuto = async(req, res)=> {
-    console.log("holis");
+    
     
     try {
     
         const { nombre , descripcion, codigo, foto, precio, stock } = req.body
-        console.log(req.body);
+        
         
         const prodNuevo = await prodcutModel.create({
             nombre,
@@ -55,11 +55,11 @@ export const createProdcuto = async(req, res)=> {
 export const deleteProdcuto = async (req, res) => {
     
     const { id } = req.params;
-    console.log(id)
+    
     try {
     
         const encontrado = await prodcutModel.findById(id)
-        console.log(encontrado)
+        
         if (!encontrado) {
             
             return res.status(400).json({
@@ -98,7 +98,7 @@ export const modificarProducto = async(req, res) => {
     try {
         
         const encontrado = await prodcutModel.findById(id)
-        console.log(encontrado)
+       
         if (!encontrado) {
             
             return res.status(400).json({
@@ -142,7 +142,7 @@ export const getProducto = async (req, res) => {
     try {
         
         const encontrado = await prodcutModel.findById(id)
-        console.log(encontrado)
+        
         if (!encontrado) {
             
             return res.status(400).json({
