@@ -84,10 +84,12 @@ api/user/asignarcarrito
 
 
 
-Correo creacion:
+Correo creacion (a fines de pruebas, se envia el correo al mail del usuario):
 
+![image](https://user-images.githubusercontent.com/45604192/216630051-97583e0c-412c-4cc0-a8c7-db63a5b1bb35.png)
 
 
 Correo Compra finalizada:
 
 
+![image](https://user-images.githubusercontent.com/45604192/216629820-ad015185-7c38-43b5-bcc7-577e8259c313.png)
