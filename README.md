@@ -93,3 +93,9 @@ Correo Compra finalizada:
 
 
 ![image](https://user-images.githubusercontent.com/45604192/216629820-ad015185-7c38-43b5-bcc7-577e8259c313.png)
+
+
+Loggers:
+
+![image](https://user-images.githubusercontent.com/45604192/216633040-c376cb2a-1118-4b6e-a292-dc7f60f77444.png)
+
