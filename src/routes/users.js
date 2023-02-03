@@ -1,6 +1,6 @@
 import passport from "passport";
 import { Router } from "express";
-import { signUp, logIn, getHome , asignarCarrito} from '../controllers/user.js'
+import { signUp, logIn, getHome , asignarCarrito, finalizarCompra} from '../controllers/user.js'
 import { isLoggedIn } from '../middlewares/user.js'
 import router from "./productos.js";
 
@@ -16,5 +16,6 @@ routerUser.post('/login' , logIn)
 
 
 routerUser.post('/asignarcarrito', asignarCarrito)
+routerUser.post('/finalizarcompra', finalizarCompra)
 
 export default routerUser

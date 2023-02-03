@@ -1,6 +1,7 @@
 import passport from "passport";
 import {UserModel} from "../models/user.js"
-import {sendMailLogin} from "../controllers/mail.js"
+import {carritoModel} from "../models/carritos.js"
+import {sendMailLogin , sendMailCompraFinalizada} from "../controllers/mail.js"
 
 const passportOptions = { badRequestMessage : 'Datos erroneso o incompletos'}
 
@@ -74,15 +75,25 @@ export const finalizarCompra = async(req, res) => {
         const user = await UserModel.findOne({ username : username})
         if (user) {
             
+            const upd = await UserModel.findOneAndUpdate(
+                { _id : user._id , "carritos.carrito" : id_carrito},
+                {
+                    $set: { "carritos.$.estado" : "Finalizada"}
+                },
+                { new : true}
+            )
 
             if (upd) {
                 
-                return res.status(200).json({
+                res.status(200).json({
                     ok: true,
-                    msg: "Error al finalizar compra",
+                    msg: "Compra finalizada",
                     user: upd
         
                 })
+
+                const car = await carritoModel.findById({_id : id_carrito})
+                const envio = sendMailCompraFinalizada(user, car)
 
             } else {
                return res.status(401).json({ok: false, msg: "Error, al finalizar compra"}) 
