@@ -99,3 +99,11 @@ Loggers:
 
 ![image](https://user-images.githubusercontent.com/45604192/216633040-c376cb2a-1118-4b6e-a292-dc7f60f77444.png)
 
+
+
+Wsp enviado al finalizar compra
+
+
+![image](https://user-images.githubusercontent.com/45604192/216661584-253cc6d9-11e1-4a38-a4d5-bb354035d856.png)
+
+
