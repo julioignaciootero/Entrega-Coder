@@ -14,6 +14,7 @@ api/randoms
 
 api/user/signup
 
+
 Body: 
 
 {
@@ -34,7 +35,59 @@ api/user/login
 
 api/productos
 
+Body:
 
-api/carritos
+{
+
+    "nombre": "Cartuchera",
+    "descripcion" : "Cartuchera cuero",
+    "codigo" : "0987654321",
+    "foto": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-48.png",
+    "precio" : 1000,
+    "stock" : 200
+
+}
+
+api/carritos 
+
+Body:
+
+{
+
+    "productos" : [
+        {
+            "producto" : "63da9d824f9431caebcab7d5",
+            "cantidad" : 7
+        }
+    ]
+}
+
+api/user/finalizarcompra
+
+{
+
+    "username" : "pepeargento",
+    "id_carrito" : "63db053bb4d1d764eff12826"
+
+}
+
+
+
+api/user/asignarcarrito
+
+{
+
+    "username" : "pepeargento",
+    "id_carrito" : "63db053bb4d1d764eff12826"
+
+}
+
+
+
+Correo creacion:
+
+
+
+Correo Compra finalizada:
 
 
