@@ -39,6 +39,7 @@ export const sendMailCompraFinalizada = async (user, carrito) => {
 
     body += `</body>   </html>`
 
+    
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
