@@ -2,6 +2,7 @@ import passport from "passport";
 import {UserModel} from "../models/user.js"
 import {carritoModel} from "../models/carritos.js"
 import {sendMailLogin , sendMailCompraFinalizada} from "../controllers/mail.js"
+import { logger } from "../config/logs.js";
 
 const passportOptions = { badRequestMessage : 'Datos erroneso o incompletos'}
 
@@ -63,7 +64,7 @@ export const asignarCarrito = async(req, res) => {
 
         }
     } catch (error) {
-        console.log(error)
+        logger.error(error)
     }
 }
 
@@ -105,6 +106,6 @@ export const finalizarCompra = async(req, res) => {
 
         }
     } catch (error) {
-        console.log(error)
+        logger.error(error)
     }
 }

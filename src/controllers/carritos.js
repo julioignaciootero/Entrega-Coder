@@ -1,6 +1,7 @@
 import { carritoModel } from "../models/carritos.js";
 import { prodcutModel } from "../models/productos.js";
 import mongoose, { ObjectId }  from 'mongoose'
+import { logger } from "../config/logs.js"
 // import { ObjectId } from "mongodb";
 
 export const checkBodyCarrito = async ( req  ,  res , next) => {
@@ -8,6 +9,7 @@ export const checkBodyCarrito = async ( req  ,  res , next) => {
     const { productos } = req.body
     console.log(productos)
     if (!productos) {
+
 
         return res.status(400).json({
             ok: false,
@@ -56,7 +58,7 @@ export const deleteProducto = async ( req , res) => {
 
                     //Si se elimino el producto le vuelvo a generar el stock al producto                  
                     const stockUpd = await updateStock(prod.producto , prod.cantidad , true)
-                
+                    logger.info("Producto eliminado")
                     return res.status(200).json({
                         ok: false,
                         msg: "Producto eliminado",
@@ -78,7 +80,7 @@ export const deleteProducto = async ( req , res) => {
 
 
     } catch (error) {
-        console.log(error);
+        logger.error(error)
         return res.status(500).json({
             ok: false,
             msg: error.message,
@@ -89,7 +91,7 @@ export const deleteProducto = async ( req , res) => {
 }
 
 export const createCarrito = async(req, res) => {
-    console.log("holis");
+    
     
     try {
     
@@ -99,7 +101,7 @@ export const createCarrito = async(req, res) => {
         const carritoNuevo = await carritoModel.create({
             productos: productos
         })
-
+        logger.info("Carrito Creado")
         return res.status(200).json({
             ok: true,
             msg: "Carrito creado",
@@ -108,7 +110,7 @@ export const createCarrito = async(req, res) => {
         })
 
     } catch (error ) {
-        console.log(error);
+        logger.error(error)
         return res.status(500).json({
             ok: false,
             msg: error.message,
@@ -142,6 +144,7 @@ export const deleteCarrito = async (req, res) => {
             });
 
             await carritoModel.findByIdAndDelete(id)
+            logger.info("Carrito eliminado")
             return res.status(200).json({
                 ok: true,
                 msg: "Carrito eliminado"
@@ -152,7 +155,7 @@ export const deleteCarrito = async (req, res) => {
 
 
     } catch (error ) {
-        console.log(error);
+        logger.error(error)
         return res.status(500).json({
             ok: false,
             msg: error.message,
@@ -182,7 +185,7 @@ export const updateStock = async ( id , cantidad , sumar  ) => {
         }
 
     } catch (error) {
-        console.log(error)
+        logger.error(error)
         return false
     }
 
@@ -249,6 +252,7 @@ export const agregarProducto = async(req, res) => {
                 
                     prod.stock = prod.stock - cantidad
                     await prodcutModel.findByIdAndUpdate(id_prod, prod)
+                    logger.info("Producto agregado")
                     return res.status(200).json({
                         ok: true,
                         msg: "Producto Agregado",
@@ -261,7 +265,7 @@ export const agregarProducto = async(req, res) => {
 
 
     } catch (error ) {
-        console.log(error);
+        logger.error(error)
         return res.status(500).json({
             ok: false,
             msg: error.message,
@@ -345,7 +349,7 @@ export const getCarrito = async (req, res) => {
         
 
     } catch (error ) {
-        console.log(error);
+        logger.error(error)
         return res.status(500).json({
             ok: false,
             msg: error.message,
@@ -377,7 +381,7 @@ export const getAllCarritos = async (req, res) => {
         }
         
     } catch (error) {
-        console.log(error);
+        logger.error(error)
         return res.status(500).json({
             ok: false,
             msg: error.message,

@@ -1,5 +1,7 @@
 import nodemailer from "nodemailer"
 import dotenv from "dotenv"
+import { logger } from "../config/logs.js";
+
 
 
 export const sendMailCompraFinalizada = async (user, carrito) => {
@@ -39,7 +41,7 @@ export const sendMailCompraFinalizada = async (user, carrito) => {
 
     body += `</body>   </html>`
 
-    
+
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -59,10 +61,10 @@ export const sendMailCompraFinalizada = async (user, carrito) => {
     };
     transporter.sendMail(mailOptions, function(error, info){
       if (error) {
-        console.log(error);
+        logger.error(error)
         return false
       } else {
-        console.log('Email sent: ' + info.response);
+        logger.info("Email enviado")
       }
     });
 
@@ -70,14 +72,14 @@ export const sendMailCompraFinalizada = async (user, carrito) => {
 
     return true
   } catch (error) {
-    console.log(error)
+    logger.error(error)
     return false
   }
 
 }
 
 export const sendMailLogin = async ( user) => {
-    console.log(user)
+    
     try {
 
 
@@ -99,15 +101,15 @@ export const sendMailLogin = async ( user) => {
           };
           transporter.sendMail(mailOptions, function(error, info){
             if (error) {
-              console.log(error);
+              logger.error(error)
               return false
             } else {
-              console.log('Email sent: ' + info.response);
+              logger.info("Email enviad")
             }
           });
         return true
     } catch (error) {
-        console.log(error)
+      logger.error(error)
         return false
     }
 

@@ -24,7 +24,7 @@ export const randoms = (max, min, cant) => {
 }
 
 process.on('message', (opt) => {
-    console.log(opt)
+    
     // if (msg == 'start') {
     if (opt.message == 'start') {
   

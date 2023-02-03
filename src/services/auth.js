@@ -1,6 +1,7 @@
 import passport from "passport";
 import { Strategy as localStrategy} from "passport-local";
 import { UserModel } from '../models/user.js'
+import { logger } from "../config/logs.js";
 
 const strategyOptions = {
     usernameField : 'username',
@@ -19,7 +20,7 @@ const signup = async (req, username, password, done) => {
         return done(null, newUser)
 
     } catch (error) {
-        console.log(error)
+        logger.error(error)
         return done(null, false, { msg: "Error"})
     }
 

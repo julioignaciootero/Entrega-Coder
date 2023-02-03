@@ -1,4 +1,5 @@
 import {prodcutModel} from "../models/productos.js";
+import { logger } from "../config/logs.js";
 // import express, { Request, Response, NextFunction } from "express";
 
 export const checkBodyProducto = async ( req ,  res , next) => {
@@ -42,7 +43,7 @@ export const createProdcuto = async(req, res)=> {
         })
 
     } catch (error ) {
-        console.log(error);
+        logger.error(error)
         return res.status(500).json({
             ok: false,
             msg: error.message,
@@ -82,7 +83,7 @@ export const deleteProdcuto = async (req, res) => {
 
 
     } catch (error ) {
-        console.log(error);
+        logger.error(error)
         return res.status(500).json({
             ok: false,
             msg: error.message,
@@ -126,7 +127,7 @@ export const modificarProducto = async(req, res) => {
         
 
     } catch (error) {
-        console.log(error);
+        logger.error(error)
         return res.status(500).json({
             ok: false,
             msg: error.message,
@@ -166,7 +167,7 @@ export const getProducto = async (req, res) => {
         
 
     } catch (error) {
-        console.log(error);
+        logger.error(error)
         return res.status(500).json({
             ok: false,
             msg: error.message,
@@ -196,7 +197,7 @@ export const getAllProductos = async (req, res) => {
         }
         
     } catch (error) {
-        console.log(error);
+        logger.error(error)
         return res.status(500).json({
             ok: false,
             msg: error.message,
